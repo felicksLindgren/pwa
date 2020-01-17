@@ -1,0 +1,8 @@
+<form>
+  <mat-form-field>
+    <mat-label>Chat name</mat-label>
+    <input #input minlength="10" matInput type="text">
+  </mat-form-field>
+  <button mat-button #button type="submit" [mat-dialog-close]="input.value">Add</button>
+</form>
+

@@ -1,0 +1,10 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div>
+    <button *ngIf="!recording" [disabled]="loading" matTooltip="Start listening" mat-fab (click)="initializeRecognizer()"><mat-icon>mic</mat-icon></button>
+    <button *ngIf="recording" [disabled]="loading" matTooltip="Stop listening" mat-fab (click)="terminateRecognizer()"><mat-icon>mic_off</mat-icon></button>
+</div>
+<div>
+  <mat-chip-list>
+    <mat-chip *ngFor="let p of predictions">{{p.word}}</mat-chip>
+  </mat-chip-list>
+</div>

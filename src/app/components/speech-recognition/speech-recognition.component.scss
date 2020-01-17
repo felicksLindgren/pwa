@@ -1,0 +1,17 @@
+:host {
+  display:flex;
+  flex-flow: column;
+  margin: 0 auto;
+  flex:1;
+  justify-content: center;
+
+  div {
+    display: flex;
+    flex-flow: row;
+    margin: 1rem;
+
+    &:first-of-type {
+      justify-content: center;
+    }
+  }
+}

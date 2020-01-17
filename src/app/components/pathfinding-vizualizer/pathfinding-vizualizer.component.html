@@ -1,0 +1,50 @@
+
+
+<div class="menu">
+  <mat-form-field>
+      <mat-label>Select an Algorithm</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="Dijkstra">Dijkstra</mat-option>
+        <mat-option value="Astar">A* (Astar)</mat-option>
+        <mat-option value="Random">Pure heuristic</mat-option>
+        <mat-option disabled value="Dstar">D* (Dstar)</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <!-- <mat-slider max="100" min="10" thumbLabel [displayWith]="formatLabel" [(ngModel)]="speed"></mat-slider> -->
+  <button mat-mini-fab aria-label="Vizualize algorithm" matTooltip="Vizualize algorithm" (click)="visualizeAlgorithm()"><mat-icon>play_arrow</mat-icon></button>
+  <button mat-mini-fab aria-label="Generate maze" matTooltip="Generate maze" color="default" (click)="vizualizeMaze()"><mat-icon>grid_on</mat-icon></button>
+  <button mat-mini-fab aria-label="Reset vizualization" matTooltip="Reset vizualization" color="default" (click)="resetAlgorithm()"><mat-icon>replay</mat-icon></button>
+  <button mat-mini-fab aria-label="Reset grid" matTooltip="Reset grid" color="warn" (click)="resetGrid()"><mat-icon>delete</mat-icon></button>
+
+</div>
+<div class="info" [ngSwitch]="selected">
+  <ng-container *ngSwitchCase="'Dijkstra'">
+    <h4>Dijkstra is a weighted algorithm and guarantees the shortest path</h4>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Astar'">
+    <h4>A* is a weighted algorithm and guarantees the shortest path</h4>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Random'">
+    <h4>Pure heuristic is a weighted algorithm and does not guarantees the shortest path</h4>
+  </ng-container>
+</div>
+<div id="grid">
+  <div *ngFor="let row of grid; let r = index">
+    <div
+      [@node-wall]="node.animateWall ? 'move' : null"
+      [@node-visited]="node.isVisited ? 'move' : null"
+      [@node-shortest-path]="node.isShortestPath ? 'move' : null"
+      class="node"
+      [ngClass]="{
+        'node-start': node.isStart,
+        'node-finish': node.isFinish,
+        'node-wall': node.isWall
+      }"
+      *ngFor="let node of row; let c = index"
+      (mousedown)="handleMouseDown(r, c)"
+      (mouseenter)="handleMouseEnter(r, c)"
+      (mouseup)="mouseIsPressed = false"
+      >
+    </div>
+  </div>
+</div>

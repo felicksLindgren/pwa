@@ -1,0 +1,70 @@
+<mat-sidenav-container [ngClass]="{'invert-theme': darkMode}" class="example-container">
+  <mat-sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" #sidenav class="example-sidenav">
+      <mat-action-list>
+        <a mat-list-item routerLink="/" (click)="sidenav.toggle()">
+          <img matListAvatar alt="Profile image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAWh0lEQVRoga1a228b152eM3PmPuSQFCmRkiXLtmypdjYx2tpwFGef2jwEKNAbkLToQ9Ft0ce+FAUKFH3Mv5C2u/tQFGkfdg1kk7SLJE6TuEZsIGnt2LJl2ZJtSZQoUrzMkJz7bR++aDChpKQB9jwIFDmX3/33/b5zyM7ODiGEYRiGYdIP2ZX9MkmSJEkopYSQOI6TJMGvcRxzHBdFUZIkHMcxDBOGIT4TQnBX+qgkSeI4ppTGcUwIYVkWTxi55jAx0p8+ub7b7e4XOrtwXSrEyPf7X5CKlYoOEaEt1IOqcRzjxvQylmXx5YHmO/DtVBCEEUE/V4EoihiGSf3AMAzLsmEY8jzPcVwYhmEYpqbNipgKDTemD0ydCY+NiH6YTz751XGcEenTv7hzvw0gH6WUYZggCJIk4Xk+KwellGXZJEmiKEo1hBqp1dMPI/JlA+mfWRTPzcqaVSN9QfpEjuPg6PTGVDiWZbvd7qNHj7rdriAIuq4LgjA7O6tpGqXUdV2GYWRZJoQ4jpP1D4IHJsiqkV2HZQXBc/evVKv9X8KQqdNhadd179+/v7GxwTCMJEnQR5IkQogoisVisVKpyLIMb4iimGY/JEvzZL/EhwXPJ2ocpsB+0fGgOI7T8EDQW5bV6/Vu3rxpmqbjOKIo6rouSVIQBL7vG4aRz+dFUUySRNf1Y8eOVatVnuc9z0sjDf487L2f/SU97Lf9ZStdHMfFcQzjBUHQ7XY3NjYcx2k2m+12G7eEYVgsFo8cOVKtVjmOg6PCMNzY2Gi324IgFAoFRVEURcFP8Cfc+7mmzEo1qkC2Gh54vyAIg8FA0zQYb2tr6969e6urqywl5sDomV3TNC3LYlm2UqkM7cHDhw8rlUo+n+d5HoULLaJQKBw/fnx8fDyXyzmOk8/nPc87MG4/e40q8LnLdV1FUaIoQvJdv369Wq32+/2YiTiOq1aruVyu2Wy6risIgqIoE5UqISQIAsuyPM9D1Lmuq2lat9tVVTWfz1NKgyDAAw8z3GHrkzK6f3128HEchyBeWVm5ceOGaZpdo6MoiiRJ+JXn+eFw2Gg0XNuLokgURUmSkD/FYrFQKEiSlM/nFxcXVVVF92BZFu35CylAPzfmRpQBZAjDkGEYnudrtdrq6mqv1+MILZcqx44dKxQKSZK4rtvtdot6qdVqlUolxLeqqkEQhGFYKBRUVfV9/4MPPrhw4UK5XOZ53vd9qPH/r0BWDc/zZFn2fZ8Q4vt+s9lkGEaSpIsXL/I8jwLqeZ4oiuVyWVVVSZIePHjg+76u64ZhyLJcKBQ8z/N9P5fLEULa7baiKKqqRlEkCMJhHjhMzi+gAJ7CsixqZRAEnU4njuNWq7WwsCDLMnAObEwI4Xk+CAIka71e73a7PM+7rtvv9ymlxWLRcZzhcJgkyfz8fL/f1zTNcZwU2vyT64spwDCMIAimaQK0eJ7XaDQmJiZ0Xec4bjAY+L7P8zwhBGGGXqFpWqFQCMPQtm3Lsnie13W91+tFUeQ4jmVZx44dO3PmDC7+QsJ8lgKH9QHXdVVVZVnWNM0oiur1erlcjqLIsixgTNd10X3RvOI4hsS+73uex7Ks53n1ej2OY0VRxsbGeJ63bdvzvDiOBUH4ogY9OGPw4rRbpSqlgeH7PkwuimI+nw/D0PM8QLR8Po9QRodCfIuiiL+iKPq+b5pmo7lt9Hu7nRYv0k6n43ke0gCOBb5C02BZFqbJQtp0jZat/Z047Y7pX5RFFE0UdVmWWZa1bVsQBNu2kySRZXkwGLAsiwJPKZUkqVKpIMyiKOoanUajkcvlLMsSRVEQBM/zcDHHcQC5nucJggD0fhi8oyMD14EALvtvHMcoNVEUIXg6nc74+DjC1zCMBw8e6Louy3K5XIavut2uYRjFYlEUReQxpbTTaydJ4jjO4uJiUS9JkoTaFYYh+loYhsjp/bNUdn1KgRHpD7wNzg3DMAiCYrFoGAaQ2crKSqvVevz4sW3bPM/PzMwMh0OO43Z3d+/fv99ut1VVnZiYmJ2dHRsbQ+5WKpVisUgpnZmZsSwLIw6KKcdxvu8DZiMyUeL2S3Vo10hhOvn0wqMZhgGWHAwGPM+bprm9vU0IeeKJJ6anp5MkGQwGiOa1tTWGYaanp2dnZ5MkaTQazWaTZdlyuTwcDuv1+uzsrK7raQlKxwzgjmRvyM6GdHbREaEPNH/2e9/3JUlCJzZNE9gG0xkh5JVXXqnVarOzs+Pj4xMTE3EcA6hSSn3fl2W53W7n8/lardZobsdxPD8/3263NSWnKArgE6U0iiLf913XhQLpJH0gzqNZLH5YqGVzA95Etl27dk2WZVEUNU07efLk9vb2c88957quruszMzPlcjmO48nJSdd1Pc+7efPm9PR0FEVjY2Oapg2Hw6mpqbm5OUmSRFGM41iW5eFwCOugKEO2FF8cKB5F19z/Q3bky+ogyzLiXpKkN9988+TJk4VCgRCCPBZFUZblsbExuKXf73McVyqVNjY2jh8/Tgg5f/48x3GKohw/ftx13XfeecdxnOkXZoBYZVlGcXRdF1WYUhqGIT4faNxPldF0Amb2qIf9jvN9XxRFZOrp06cBrRG+siyfPn0a8DYMQ0EQHMeB/c6ePRsEAaICD6Esryk8R2iz0cKEhJrL8/xgMMAzMTCJooixMR2ds3WJzWYqs9fCRhpHunBDFEWA088999zGxoZlWY7jDAaDOI5R5k3TxNSrKEoul4PocRxXKhWSYbKWlpby+fzExESSJJZlweqWZVmWhcoDrdAiU0IpZTogEgvEku1fLMvCJGnbS6VPkgQewDX5fH5mZgbg1LZtjI4wfxiGu7u729vbvu/jV0mShsOh4zj9fn9nZ4fjuHK5nCTJs88+myQJz/Mo+Y7jwA9p3Pq+n+wxNEmGB4EVaEowZVEDkylnIzEniiIAGQrc3Nxcq9XCZb1eb3x8fDAYBEFw6dIljAS+758/f15VVcuygiCAAqIo5nK5Uqk0Nzd35MgRGJhSats2ShamDoiE2TUrFZyDf2kaPOl10C8IgjQBsn9BwgmCEASBqqrlcnlzc9N1XeCLMAwVRREE4dSpU+vr60EQjI2NoXl1u13gDgTG0aNHWZZdXFxE0QSychzH931VVZm9mhPHMaB7ClRBDkAxSilpNpvgqrKEz0juZj+HYYiYSamRx48fNxqNIAjQ4xRFQTqur6/jsZIkKYoShuFwOATwnJycNAzj+9//vq7rjuPA1VEU7ezsJEmSy+WglSAIqqoCPiKM056DsCeE0N3dXUmSMDohnLJBv3+lj0Muchw3Pz+fJMmdO3c0TWMY5sqVKyzL7uzsDAaDJEkEQSiXy7quoy0gPZ5++umjR4/2+/3hcIhQURSl1Wp1Op2JiYkgCKA5qiciFqUPdQxJiISmf/rTn4rF4tTU1JEjRyqVSi6XE0XxMOCRVi6IkqZdLpcDBo6iqFqtVqvVs2fP9no9URQHgwEyYXNzU1VVSCAIgmVZCHTU/uFwOBwOXdfF2KCqalpqMAA6jtNoNLa3t8MwVFUVhBLDMDSfz6Ph37t3j+f5ycnJUqk0PT09OTkJJodhGNu2dV33PI/ZI5ZRanmeRzmq1WqyLONl+Xze9/16vV6v1/EOgFO0J8dxIBwaqOd5EJoQsr6+blmWbduapqVEd6fTcRzHNE1CSKvV6vf7tm3/4x//ePjwIaW0Wq2S3/72t1EUQdAwDEVRZBimUCicOXNGURTP8wCqMEaGYRjHcS6XS8uZZVkYaBqNxvr6OoTrdDqotmBWcAEAiOd5TzzxRC6Xq9frqK3tdvvFF180DKPVakmSVCwWS6VSEATApG+++Wav11tYWKjX65qm2bZdqVRKpRJmjyRJyFtvvQW3IonBbYiiWK/XDcOAwWAA3/fRkiqVyrlz5z766COMi1EUBUFw9uzZJElM0yyXy+DhkK8gAUDX3b9/P5fLHT16NAzDer0OECrL8te//nXLsuArxLqqqhBmbW2NUjo+Pt5sNpeWlsIw/NKXvoTmGMexYRgU03cYhu12u1AouK6bz+dZlt3c3EQA+L6vaRoAFlgGVPFarUYprdVqOzs7IBJBsWxubs7MzDAM0+/3EXLdbpcQcvfuXThdkqQoiiqVysLCgmmagiC0Wi1ZlkulErILtaTdbuu6fuLECbjadd3p6ekwDH3fX11dRbexbZtSSmVZRrQBDxaLRULI6dOnNU1bX19HUIFRZBimVCoBrqQs4vr6+tra2gsvvEAppZSWSqU7d+60Wi0UdQRDFEW5XE7XdUKI4ziYLXd3d2VZRgBDdEVRfN+3LOvOnTuO41y4cAGtoN/v+74/OzuLcUdRlLW1NQQFZfZ2tVBcbdtGhs3Ozoqi+OjRo2azmcvl5ufnCSGmaaKA9vt913UfPHiwvLx89epVz/N+9rOfbW1tKYriOM7U1BQhZGNjA0FfKBSAXvP5vGEY4+Pjruv+8pe/rFarzzzzzPPPPw8qoNfrtVotNMqZmRlktmVZ2GTAe1E6VVUtlUqgRbhvfetbjUbDNE3TNH3f7/f7ExMTkiTduXNH13XTNG/dunXu3LmFhQVN01AEUJtv3759+fLler3e6/W+853vnDhxAjwPWFGULI7jEM1RFOm6TikVBIFlWV3XVVXd2NjAFDo5OTk2Nqaqar/fHwwGtm2DrNY0zd9b2OMBUQBIH8fxuXPnuLm5uWvXrt29e3dra2t1dXVjY0NV1TAMb968yfP89va2YRjVanVra6vX6zUaDaSKpmlvvPEG5u7vfve7P/jBD1ANU8zMsizYBzAxCDzQ6wjaixcvOo6ztLTEsuzt27eDIHj//fefffZZ0zQNw8BEOj4+3mg0er3e9vZ2q9VaX19fX193XbfT6XS7XV3XkyTharUawzBjY2NJkqiqqqpqr9fD2IpLT5w4kc/nT548iU2X3U6rvlV/7fX/8XyP5dhOt/Pjn/yYo6znegzDoJikuYjBHD1VVVVZlmHIXC7HUvLVc18No/Deyj2OsvdW7u22dwfDwcVnnq3X6zdv3gTQsm17eXkZW1j1en1lZcX3/Wq1in2g4XBIp6amTNNkGAaAArAMs6mmacACACqu61qWtba2hjFXUZQgCBRFQb0SeQlzAsASwzCDwaBQKNi2DXxGKUX28zyPujcYDKanp3O5HMBLGIavv/76saPHNU2bm5sDgkClBnhBnUU3iKKo2+1qmkY1TXvyySfn5+fTvv348ePV1VVBEPL5/NTUlGEYlmWVy+XV1dU//vGPfuhhpxGDRBRFw+EwDEPXNhmGQZN2HAfbLY7joHyxLAs8h1TGvYqifPzxxzAZ9mmKxeLvf//7L3/5y+fPn+/3+xAadonjuFqtyrLc7/dbrRaA7blz56jv+9vb24qi6LoOdUulUqFQYFmGZRnLGjBMrGnKxx/f+POfXx8O+5Iiu66LQQmWo5R6nifyEiFkOBymrI6qquCqVFXFTitQDTIhiqJXXnnl6tWrk5OTGOUw2lPK37hx4/HjxxcuXADwNgwjnSRN0+z1etjnRGHgfvrTn+LOwWCwsrKyvr4OtCRJoqIocRz3er333nvvypUraMye76H7RlH0ta997Zvf/Oarr776/PPP982+oiio6HA6mAWO4wqFAsgSnufx2ff9//jPfz916tTi4iIyuFAoIOt8LxgOhwi2xcVF4DRUeTSvUqk0MTGBvDpy5Ah56aWXqtVqHMfgvjE9tNttSlnf9+/fv28YBgZ8mM3xXIR+EARIo52dnV//+tfHjh4fDAa5XI5hGEROv99HOYKBgDExgr/88suPNx5pmlYqlVqtVhzHqqoOBgM4B9dwHDc+Pv6Nb3zj1KlTnufxnNBqtXzfR1fxPM+27bGxMW5hYWFubk7TNEw9k5OThJDt7e3t7a27d+8OBgMIlOYZu7czgEIZhqGmae+///73XvweHo0MBgCRZZnneeyCYd+7VCr95je/efToEeUp4jjl4dKxBsgADOytW7dWV1cvXrxYHqvApTMzM9gzf/jw4dbWFnfhwoX5+XlJkkBmVCqV3d3dd999t93eRbkA5YRmRAiJ4iiFoimNw7Ls36787dvf/jbKDsroxMSE53nFYhG7IZVKpVAo/OEPf/jwww8lSSIsQX9F64BzyN45C4ZhgiAIggBF4vLly0mc3Lhxo9/vnz17dmxs7NGjR5cuXep0OhTYGBpHSchS8vY7b3mBGzOJ63sJYRhCvMCPkzhmkiSO8Q5MG+ALMKF2jc6//eRHv/vd746dmA0833E8y7JqtRohCSFEEAQtn7t27dobf3kdo1kURWmLABuXpXJTWg0asiz7v2/+ZXJysjJRZthkq1FfeXDvzL+clmWZ+/nPf44JzXVdhjCGYbz77ru4Jx3Hksz+AEiA9HM6gqJPXb16dXp6ulIui6Iky7Ku65IkFovFfD5/6/btH/7wh/l8HvnD7J0byY7gADz7KVqMuJg9WJZdWloyDAOkHcWgBFCdJMnS0hJIK9ggS3jtn/HTXwkhhmH0er0nn3zyypUrvuvxvJjL5SRJ4jiCUywvvfRSrVZL+ZIRi2Tfst9wAJ6iKC4vL29sbIB3ieP4K1/5CkXSgDruGh2MKah6JLNSM+xnivANUPft27e3traOzx67ePFfMeLFcchx3Hvvvbe5uVmpVGzbxiCGrE32jkiQfQRzSiykNgJSxj5VHMelUumZZ57hnnrqKexqRVFk9g0owHyaG83ySllTZQ/5EEIwTAVB8PeP/v7UU2fhbp6nvV7vV7/6VV7XHcdJj9aBI2Ezp9GyRjmQFgExjhrFcVyv17t+/TpbrVZnZmaQRltbW+hQAMMI7gNZlmRvpYohAovFImaUX/ziF81mE3365ZdfRjilqAais5lzdSMEZvbh+AxCH/sSQJlwJnvv3r233357eXmZUrq5uYl7sgfpRgRNMivrcQxTiG+E36uvvqrr+ocffvjBBx+wLAvWJOVP02RNMmzaYQsuwr4WdvlRx8MwZG/cuPHaa691Oh1CCDAcmJkRBbIvGEmyVLeUMAVH9te//lUQhOvXr4OpFgQBm3yAuiPWQXBmefIDdYArAGxd1w3DkNamqgmJm7s70a0QYIvsbQZDIERemknp/JnWU9RyXIZf/SgghBCOuX3n1n9d+u98Pk84FjwC6CBcCXQEaJQ1Spa7JXs8O7yanpJJ9wIpTr5wHNdut8HkYK935ORLske1HubiIAgkSUJSSpKEyX16ehoigiQc6SGfGzPZlEjTHVZIgGtYliqKQvZ4C9u2x8fHwWGlcZkN92x3G4kilLaU4uV5fmpq6vLly7ATyRwjTQ18oNz7/6ZZzuwBymx1oUEQaJoG2BzHMTgcsGgj+3/xpw/ajryJyVReVVW73e7y8vL09HT29HG2n6SPTT5dQw9MuWTvoCywOmrMJ9gJP2Pyh50cx5FlGd0+fXrWIdnOkH7pOA74D7ASLMvWajU8M8kc00zFGhF6pCLtdwLqb5ricRxju5pFUSsWi5jusYWY8rip+7IPPbAKYf4KwxCnVXDqFdtbI1eSPd58xNjpu9LXZX9F5Rk5E5wkCYsx/Omnn4aW/X4fIDYN1jTgstV6vxpgVFMj4QBTs9nMmjZbXkYCZr+xRnTAGI1yBE7gEwVM05RludForK6ugnhK99s+Y41mH8MggxGd0L9SqWD3JSvcYVY4LAGyfhtBZTDW/wGgnaTo3oYbmgAAAABJRU5ErkJggg==">
+          <h3 matLine>Felix Lindgren</h3>
+        </a>
+      </mat-action-list>
+      <mat-action-list class="test">
+          <a mat-list-item
+          routerLink="/auth"
+          routerLinkActive
+          #auth="routerLinkActive"
+          [class.list-item-active]="auth.isActive"
+          (click)="sidenav.toggle()">
+            <h3 matLine>Chats</h3>
+          </a>
+        <a mat-list-item
+        routerLink="/tensorflow"
+        routerLinkActive
+        #tensorflow="routerLinkActive"
+        [class.list-item-active]="tensorflow.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Image classifier</h3>
+        </a>
+        <a mat-list-item
+        routerLink="/speech"
+        routerLinkActive
+        #speech="routerLinkActive"
+        [class.list-item-active]="speech.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Speech recognition</h3>
+        </a>
+        <a mat-list-item
+        routerLink="/pathfinding-vizualizer"
+        routerLinkActive
+        #pathfinding="routerLinkActive"
+        [class.list-item-active]="pathfinding.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Pathfinding Vizualizer</h3>
+        </a>
+
+      </mat-action-list>
+
+  </mat-sidenav>
+  <div id="wrapper"  class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row class="mat-elevation-z6">
+        <button mat-icon-button (click)="sidenav.toggle()" aria-hidden="false" aria-label="Example menu icon"><mat-icon>{{sidenav.opened ? 'menu_open' : 'menu'}}</mat-icon></button>
+
+        <span></span>
+        <mat-icon *ngIf="{ online: online$ | async } as data" [matTooltip]="data.online ? 'Internet access' : 'Not connected'" aria-hidden="false" aria-label="Example mood icon">{{data.online ? 'wifi' : 'wifi_off'}}</mat-icon>
+        <mat-slide-toggle [matTooltip]="darkMode ? 'Switch theme' : 'Switch theme'" aria-label="Switch theme" (change)="toggleDarkMode()"></mat-slide-toggle>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-toolbar [@toolbar] *ngIf="route" color="primary">
+      <h1>{{route}}</h1>
+    </mat-toolbar>
+    <div class="content" role="main">
+
+      <router-outlet></router-outlet>
+
+      <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+        <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+        transform="translate(142.69 -634.312)"/>
+      </svg>
+    </div>
+  </div>
+</mat-sidenav-container>
+

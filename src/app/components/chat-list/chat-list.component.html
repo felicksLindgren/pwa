@@ -1,0 +1,28 @@
+<div class="container">
+    <img [src]="user.photoURL" />
+    <div class="middle">
+      <button mat-raised-button color="warn" (click)="signOut()">Sign out</button>
+    </div>
+</div>
+<mat-nav-list *ngIf="chats$ | async as chats">
+  <div>
+    <button matTooltip="Add chat" mat-fab (click)="addChat()"><mat-icon>add</mat-icon></button>
+  </div>
+  <h3 *ngIf="chats.length" mat-subheader>Chats</h3>
+  <mat-list-item *ngFor="let chat of chats">
+    <a matLine [routerLink]="['../chat', chat.id]">{{ chat.name }}</a>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="delete(chat.id)" mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Remove</span>
+      </button>
+      <!-- <button disabled mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button> -->
+    </mat-menu>
+ </mat-list-item>
+</mat-nav-list>

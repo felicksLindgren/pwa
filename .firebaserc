@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "felixpwa": {
+      "hosting": {
+        "pwa": [
+          "felixpwa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "testing": "felixpwa"
+  }
+}

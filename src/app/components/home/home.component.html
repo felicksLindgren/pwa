@@ -1,0 +1,84 @@
+<div id="cards">
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Felix Lindgren</mat-card-title>
+        <mat-card-subtitle>Human</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../../../assets/images/15844853_1599781676705578_6715423996784460900_o.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+          <p>My name is <a href="https://www.linkedin.com/in/felix-lindgren-6a65a5a3/" target="_blank" rel="noreferrer">Felix Lindgren</a>,
+          I'm a software developer from Sweden and this is my playground and it will be used for personal development, testing new techniques and discovering new solutions. <br/>
+          <br/>
+          This application is a PWA (<a href="https://developers.google.com/web/progressive-web-apps" target="_blank" rel="noreferrer">Progressive Web App</a>) built using
+          <a href="https://angular.io/" target="_blank" rel="noreferrer">Angular</a> and hosted by
+          <a href="https://firebase.google.com/" target="_blank" rel="noreferrer">Firebase</a>.
+        </p>
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a mat-button href="mailto:felix.p.lindgren@gmail.com" rel="noreferrer" target="_blank">CONTACT</a>
+      </mat-card-actions>
+    </mat-card>
+   </div>
+  <mat-divider></mat-divider>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="pathfinding-image"></div>
+        <mat-card-title>Pathfinding vizualizer</mat-card-title>
+        <mat-card-subtitle>Firebase</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Taking inspiration from <a href="https://github.com/clementmihailescu"rel="noreferrer" target="_blank">Clément Mihailescu</a> and exposing myself to explore different pathfinding algorithms.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/pathfinding-vizualizer" routerLinkActive="router-link-active" >Try it out</a>
+        <a mat-button href="https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g" rel="noreferrer" target="_blank">YouTube</a>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="firebase-image"></div>
+        <mat-card-title>Group chats</mat-card-title>
+        <mat-card-subtitle>Firebase</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Using Firebase Authentication and real time database as a way to use pre-defined sign-in providers (e.g. Google) to manage chats.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/auth" routerLinkActive="router-link-active" >Try it out</a>
+        <a mat-button href="https://firebase.google.com/" rel="noreferrer" target="_blank">Firebase</a>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Image classifier</mat-card-title>
+        <mat-card-subtitle>TensorFlow JS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>I use a pretrained model called "<a href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet#mobilenet" target="_blank" rel="noreferrer">Mobilenet</a>" (which was ported from <a href="https://keras.io/" rel="noreferrer" target="_blank">Keras</a> by <a href="https://www.tensorflow.org/js" target="_blank" rel="noreferrer">TensorFlow</a>) to predict the content of images.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/tensorflow" routerLinkActive="router-link-active" >Try it out</a>
+        <a mat-button href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet" rel="noreferrer" target="_blank">GitHub</a>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Speech recognition</mat-card-title>
+        <mat-card-subtitle>TensorFlow JS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>I use a JavaScript module called "<a href="https://github.com/tensorflow/tfjs-models/tree/master/speech-commands#speech-command-recognizer" target="_blank" rel="noreferrer">Speech Command Recognizer</a>" that enables recognition of spoken commands.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/speech" routerLinkActive="router-link-active" >Try it out</a>
+        <a mat-button href="https://github.com/tensorflow/tfjs-models/tree/master/speech-commands" rel="noreferrer" target="_blank">GitHub</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

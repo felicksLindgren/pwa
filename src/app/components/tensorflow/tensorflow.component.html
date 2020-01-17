@@ -1,0 +1,31 @@
+<ng-container *ngIf="!loading; else buffer">
+  <div>
+    <button mat-raised-button (click)="fileInput.click()">Choose file</button>
+    <input accept="image/*" hidden #fileInput aria-label="File input" type="file" (change)="fileChange($event)">
+  </div>
+
+</ng-container>
+
+<div *ngIf="imageSrc">
+  <img [src]="imageSrc" #image />
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Predictions</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let prediction of predictions">
+            <h3 matLine>{{prediction.className}}</h3>
+            <p matLine>Probability: {{prediction.probability}}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+
+<ng-template #buffer>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+

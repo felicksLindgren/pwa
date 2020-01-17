@@ -1,0 +1,79 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$candy-app-primary: mat-palette($mat-deep-purple);
+$candy-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$dark-primary: mat-palette($mat-purple);
+$dark-accent:  mat-palette($mat-green, A200, A100, A400);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent);
+
+@include angular-material-theme($candy-app-theme);
+
+.user .message {
+  color: white;
+  background-color: mat-color($candy-app-primary);
+}
+
+#Path_39 {
+  fill: #eee;
+}
+
+.invert-theme {
+  @include angular-material-theme($dark-theme);
+  background-color: #303030;
+  .user .message {
+    background-color: mat-color($dark-primary) !important;
+  }
+
+  #Path_39 {
+    fill: #393939;
+  }
+}
+
+// @media (prefers-color-scheme: light) {
+//   @include angular-material-theme($candy-app-theme);
+//   .user .message {
+//     color: white;
+//     background-color: mat-color($candy-app-primary);
+//   }
+
+//   #Path_39 {
+//     fill: #eee;
+//   }
+//   .invert-theme {
+//     @include angular-material-theme($dark-theme);
+//     background-color: #303030;
+//     .user .message {
+//       background-color: mat-color($dark-primary) !important;
+//     }
+//     #Path_39 {
+//       fill: #393939;
+//     }
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   @include angular-material-theme($dark-theme);
+
+//   #Path_39 {
+//     fill: #393939;
+//   }
+
+//   .user .message {
+//     background-color: mat-color($dark-primary);
+//   }
+
+//   .invert-theme {
+//     @include angular-material-theme($candy-app-theme);
+//     background-color: white;
+//     .user .message  {
+//       color: white;
+//       background-color: mat-color($candy-app-primary);
+//     }
+//     #Path_39 {
+//       fill: #eee;
+//     }
+//   }
+// }
