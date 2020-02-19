@@ -3,7 +3,7 @@ import { User } from 'firebase';
 import { Observable } from 'rxjs';
 import { ChatService } from 'src/app/services/chat.service';
 import { AddChatComponent } from '../add-chat/add-chat.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { takeUntil } from 'rxjs/operators';
 import { OnDestroyComponent } from '../on-destroy/on-destroy.component';
 import { AuthService } from 'src/app/services/auth.service';

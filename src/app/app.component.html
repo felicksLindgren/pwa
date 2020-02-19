@@ -32,10 +32,18 @@
           <h3 matLine>Speech recognition</h3>
         </a>
         <a mat-list-item
-        routerLink="/tic-tac-toe"
+        routerLink="/pathfinding-vizualizer"
         routerLinkActive
         #pathfinding="routerLinkActive"
         [class.list-item-active]="pathfinding.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Pathfinding vizualizer</h3>
+        </a>
+        <a mat-list-item
+        routerLink="/tic-tac-toe"
+        routerLinkActive
+        #tictactoe="routerLinkActive"
+        [class.list-item-active]="tictactoe.isActive"
         (click)="sidenav.toggle()">
           <h3 matLine>Tic Tac Toe</h3>
         </a>
