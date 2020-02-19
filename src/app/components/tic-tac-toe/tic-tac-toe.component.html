@@ -1,0 +1,8 @@
+<div id="container" *ngIf="grid$ | async as grid">
+    <button mat-raised-button color="accent" (click)="resetGrid(grid)">Reset game</button>
+    <div id="row" *ngFor="let row of grid">
+      <div id="node" *ngFor="let node of row; let y = index" (click)="click(grid, node)">
+        {{node.value}}
+      </div>
+    </div>
+</div>

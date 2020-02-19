@@ -18,7 +18,6 @@ export class HeuristicAlgorithmService {
     const unvisitedNodes = grid.reduce((acc, val) => acc.concat(val), []);
 
     while (!!unvisitedNodes.length) {
-      // tslint:disable-next-line:max-line-length
       unvisitedNodes.sort((a, b) => a.distance - b.distance);
       const closestNode = unvisitedNodes.shift();
 

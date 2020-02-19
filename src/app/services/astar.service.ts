@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { GridNode } from '../interfaces/grid-node';
-import { AlgorithmService } from './algorithm.service';
 import { Direction } from '../enums/direction';
 
 @Injectable({

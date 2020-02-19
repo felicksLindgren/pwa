@@ -31,7 +31,7 @@ export class ChatService {
 
   get(id: string) {
     return this.afs.collection<any>('chats').doc(id).snapshotChanges().pipe(map(doc => {
-      return { id: doc.payload.id, ...doc.payload.data() };
+      return { id: doc.payload.id, ...doc.payload.data() as any };
     }));
   }
 

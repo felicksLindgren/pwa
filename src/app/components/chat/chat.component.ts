@@ -44,7 +44,7 @@ export class ChatComponent implements OnInit {
   }
 
   async submit(id: string) {
-    if (this.message.value) {
+    if (this.message.value && this.message.value.length <= 150) {
       await this.chatService.sendMessage(id, this.message.value);
       this.message.reset(null);
     }

@@ -23,6 +23,7 @@ import { OnDestroyComponent } from './components/on-destroy/on-destroy.component
 import { ChatListComponent } from './components/chat-list/chat-list.component';
 import { PathfindingVizualizerComponent } from './components/pathfinding-vizualizer/pathfinding-vizualizer.component';
 import { CommonModule } from '@angular/common';
+import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CommonModule } from '@angular/common';
     AddChatComponent,
     OnDestroyComponent,
     ChatListComponent,
-    PathfindingVizualizerComponent
+    PathfindingVizualizerComponent,
+    TicTacToeComponent
   ],
   imports: [
     CommonModule,
