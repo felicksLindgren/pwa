@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "root": "",
@@ -47,7 +47,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -136,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "pwa"
+  "defaultProject": "pwa",
+  "cli": {
+    "analytics": "0e48d3a9-5000-43fd-993b-4004679ff086"
+  }
 }
