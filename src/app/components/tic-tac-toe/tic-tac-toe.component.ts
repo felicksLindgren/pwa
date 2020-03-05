@@ -22,6 +22,10 @@ export class TicTacToeComponent extends OnDestroyComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRightClick(event: any) {
+    console.log(event);
+  }
+
   click(grid: any, node: any) {
 
     if (grid[node.row][node.column].value) { return; }

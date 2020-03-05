@@ -229,8 +229,6 @@ export class PathfindingVizualizerComponent {
     return grid;
   }
 
-
-
   private createNode(column: number, row: number): GridNode {
     return {
       column,
