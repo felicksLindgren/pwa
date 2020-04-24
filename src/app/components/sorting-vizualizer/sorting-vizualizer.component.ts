@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { SortingService } from 'src/app/services/sorting.service';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { SortingService, Bar } from 'src/app/services/sorting.service';
 
 const ANIMATION_SPEED_MS = 2;
-const NUMBER_OF_ARRAY_BARS = 200;
-const PRIMARY_COLOR = 'turquoise';
-const SECONDARY_COLOR = 'red';
-const MAX_NUMBER = 730;
 
 @Component({
   selector: 'app-sorting-vizualizer',
@@ -14,9 +10,16 @@ const MAX_NUMBER = 730;
 })
 export class SortingVizualizerComponent implements OnInit {
   array: number[] = [];
+  primaryColor = 'turquoise';
+  secondaryColor = 'red';
+  barWidth = 5;
+  amountOfBars;
+  maxNumber = window.innerHeight / 1.8;
   loading = false;
 
-  constructor(private sortingService: SortingService) { }
+  constructor(private sortingService: SortingService) {
+    this.amountOfBars = this.calculateBarAmount(window.innerWidth, this.barWidth);
+  }
 
   ngOnInit(): void {
     this.resetArray();
@@ -33,7 +36,7 @@ export class SortingVizualizerComponent implements OnInit {
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
 
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const color = i % 3 === 0 ? this.secondaryColor : this.primaryColor;
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -54,15 +57,19 @@ export class SortingVizualizerComponent implements OnInit {
 
   resetArray() {
     const array: number[] = [];
-    for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-      array.push(this.randomIntFromInterval(5, MAX_NUMBER));
+    for (let i = 0; i < this.amountOfBars; i++) {
+      array.push(this.randomIntFromInterval(5, this.maxNumber));
     }
     this.array = array;
   }
 
   // #region Private methods
 
-  randomIntFromInterval(min: number, max: number): number {
+  private calculateBarAmount(width: number, barWidth: number): number {
+    return Math.round(width / (barWidth * 1.8));
+  }
+
+  private randomIntFromInterval(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 

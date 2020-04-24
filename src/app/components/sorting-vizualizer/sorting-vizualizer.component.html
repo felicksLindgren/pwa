@@ -2,8 +2,8 @@
   <button mat-raised-button [disabled]="loading" (click)="resetArray()"> Reset array </button>
   <button mat-raised-button (click)="sort()"> Merge sort </button>
 </mat-action-list>
-<mat-card [ngStyle]="{'height': maxNumber}" class="array-container">
+<mat-card [ngStyle]="{ 'height': maxNumber + 'px', 'min-height': maxNumber + 'px' }" class="array-container">
   <div *ngFor="let bar of array"
     class="array-bar"
-    [ngStyle]="{'height': bar + 'px', 'backgroundColor': primaryColor}"></div>
+    [ngStyle]="{ 'height': bar + 'px', 'backgroundColor': primaryColor, 'width': barWidth + 'px' }"></div>
 </mat-card>
