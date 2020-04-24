@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SortingService, Bar } from 'src/app/services/sorting.service';
+import { SortingService } from 'src/app/services/sorting.service';
 
 const ANIMATION_SPEED_MS = 2;
 const NUMBER_OF_ARRAY_BARS = 200;
+const PRIMARY_COLOR = 'turquoise';
+const SECONDARY_COLOR = 'red';
+const MAX_NUMBER = 730;
 
 @Component({
   selector: 'app-sorting-vizualizer',
@@ -11,9 +14,6 @@ const NUMBER_OF_ARRAY_BARS = 200;
 })
 export class SortingVizualizerComponent implements OnInit {
   array: number[] = [];
-  primaryColor = 'turquoise';
-  secondaryColor = 'red';
-  maxNumber = 730;
   loading = false;
 
   constructor(private sortingService: SortingService) { }
@@ -25,7 +25,6 @@ export class SortingVizualizerComponent implements OnInit {
   sort() {
     this.loading = true;
     const animations = this.sortingService.evaluate([ ...this.array ]);
-    console.log(animations);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars: any = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
@@ -34,7 +33,7 @@ export class SortingVizualizerComponent implements OnInit {
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
 
-        const color = i % 3 === 0 ? this.secondaryColor : this.primaryColor;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -56,7 +55,7 @@ export class SortingVizualizerComponent implements OnInit {
   resetArray() {
     const array: number[] = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-      array.push(this.randomIntFromInterval(5, this.maxNumber));
+      array.push(this.randomIntFromInterval(5, MAX_NUMBER));
     }
     this.array = array;
   }
