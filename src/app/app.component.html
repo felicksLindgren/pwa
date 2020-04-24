@@ -40,6 +40,14 @@
           <h3 matLine>Pathfinding vizualizer</h3>
         </a>
         <a mat-list-item
+        routerLink="/sorting-vizualizer"
+        routerLinkActive
+        #sorting="routerLinkActive"
+        [class.list-item-active]="sorting.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Sorting vizualizer</h3>
+        </a>
+        <a mat-list-item
         routerLink="/tic-tac-toe"
         routerLinkActive
         #tictactoe="routerLinkActive"
