@@ -26,6 +26,23 @@
   <div>
     <mat-card>
       <mat-card-header>
+        <div mat-card-avatar class="gravity-image"></div>
+        <mat-card-title>Bouncing ball</mat-card-title>
+        <mat-card-subtitle>Physics</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Taking a shot at simulating real life physics in the form of a bouncing ball.
+          Since I'm not a physics engineer I used <a href="https://burakkanber.com/" rel="noreferrer" target="_blank">Burak Kanber's</a> article about modeling physics
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/gravity" routerLinkActive="router-link-active" >Try it out</a>
+        <a mat-button href="https://burakkanber.com/blog/modeling-physics-javascript-gravity-and-drag/" rel="noreferrer" target="_blank">Article</a>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
         <div mat-card-avatar class="sorting-image"></div>
         <mat-card-title>Sorting vizualizer</mat-card-title>
         <mat-card-subtitle>Algorithms</mat-card-subtitle>

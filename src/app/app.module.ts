@@ -25,6 +25,7 @@ import { PathfindingVizualizerComponent } from './components/pathfinding-vizuali
 import { CommonModule } from '@angular/common';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 import { SortingVizualizerComponent } from './components/sorting-vizualizer/sorting-vizualizer.component';
+import { GravityComponent } from './components/gravity/gravity.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SortingVizualizerComponent } from './components/sorting-vizualizer/sort
     ChatListComponent,
     PathfindingVizualizerComponent,
     TicTacToeComponent,
-    SortingVizualizerComponent
+    SortingVizualizerComponent,
+    GravityComponent
   ],
   imports: [
     CommonModule,

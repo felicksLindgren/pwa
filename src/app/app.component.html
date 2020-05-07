@@ -55,6 +55,14 @@
         (click)="sidenav.toggle()">
           <h3 matLine>Tic Tac Toe</h3>
         </a>
+        <a mat-list-item
+        routerLink="/gravity"
+        routerLinkActive
+        #gravity="routerLinkActive"
+        [class.list-item-active]="gravity.isActive"
+        (click)="sidenav.toggle()">
+          <h3 matLine>Bouncing ball</h3>
+        </a>
 
       </mat-action-list>
 
