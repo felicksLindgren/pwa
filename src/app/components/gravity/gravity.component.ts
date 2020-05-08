@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Ball } from 'src/app/interfaces/ball';
 
-const FRAME_RATE = 1 / 40;
-const FRAME_DELAY = FRAME_RATE * 1000; // ms
 const RADIUS = 15;
 const A = Math.PI * RADIUS * RADIUS / (10000);
 const CD = 0.47;
@@ -33,11 +31,15 @@ export class GravityComponent implements OnInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
   width = window.innerWidth * 0.8 + 1;
-  height = window.innerHeight * 0.8 + 1;
+  height = window.innerHeight * 0.8 + 1 - 17;
   backgroundSize = `${this.width / 10}px ${this.height / 10}px`;
   ball: Ball;
   mouse = { x: 0, y: 0, isDown: false };
   loopTimer = false;
+  animationFrames = [];
+  frameRate = 1 / 20;
+  frameDelay = this.frameRate * 1000;
+  fps = 0;
 
   private ctx: CanvasRenderingContext2D;
 
@@ -49,6 +51,7 @@ export class GravityComponent implements OnInit {
       radius: RADIUS,
       restitution: -0.7
     };
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 
   ngOnInit(): void {
@@ -60,7 +63,30 @@ export class GravityComponent implements OnInit {
 
     this.ctx.fillStyle = 'red';
     this.ctx.strokeStyle = '#000000';
-    setInterval(this.loop.bind(this), FRAME_DELAY);
+  }
+
+  animate(animationFrame: any) {
+    this.animationFrames.unshift(animationFrame);
+
+    if (this.animationFrames.length > 10) {
+      const t0 = this.animationFrames.pop();
+      const fps = Math.floor(1000 * 10 / (animationFrame - t0));
+
+      if (fps + 1 === this.fps || fps - 1 === this.fps && this.fps > 0) {
+        this.fps = fps;
+
+        this.frameRate = 1 / this.fps;
+        this.frameDelay = this.frameRate * 1000;
+
+        setInterval(this.loop.bind(this), this.frameDelay);
+
+        return;
+      } else {
+        this.fps = fps;
+      }
+    }
+
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 
   loop() {
@@ -77,12 +103,12 @@ export class GravityComponent implements OnInit {
       const ax = Fx / this.ball.mass;
       const ay = AG + (Fy / this.ball.mass);
       // Integrate to get velocity
-      this.ball.velocity.x += ax * FRAME_RATE;
-      this.ball.velocity.y += ay * FRAME_RATE;
+      this.ball.velocity.x += ax * this.frameRate;
+      this.ball.velocity.y += ay * this.frameRate;
 
       // Integrate to get position
-      this.ball.position.x += this.ball.velocity.x * FRAME_RATE * 100;
-      this.ball.position.y += this.ball.velocity.y * FRAME_RATE * 100;
+      this.ball.position.x += this.ball.velocity.x * this.frameRate * 100;
+      this.ball.position.y += this.ball.velocity.y * this.frameRate * 100;
     }
 
     // Handle collisions
@@ -125,7 +151,7 @@ export class GravityComponent implements OnInit {
       this.ctx.lineTo(this.mouse.x, this.mouse.y);
       this.ctx.stroke();
       this.ctx.closePath();
-  }
+    }
   }
 
   mouseDown = (event: any) => {
