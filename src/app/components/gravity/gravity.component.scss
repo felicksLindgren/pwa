@@ -1,15 +1,21 @@
 :host {
   display:flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
+
+  span {
+    text-align: end;
+  }
+
+  canvas {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    background-color: white;
+    background-image:
+      linear-gradient(to right, grey 1px, transparent 1px),
+      linear-gradient(to bottom, grey 1px, transparent 1px);
+  }
 }
 
-canvas {
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  background-color: white;
-  background-image:
-    linear-gradient(to right, grey 1px, transparent 1px),
-    linear-gradient(to bottom, grey 1px, transparent 1px);
-}
+

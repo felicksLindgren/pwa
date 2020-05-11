@@ -30,8 +30,8 @@ const FRICTION = 0.97;
 export class GravityComponent implements OnInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
-  width = window.innerWidth * 0.8 + 1;
-  height = window.innerHeight * 0.8 + 1 - 17;
+  width = window.innerWidth * 0.8;
+  height = window.innerHeight * 0.8  - 17;
   backgroundSize = `${this.width / 10}px ${this.height / 10}px`;
   ball: Ball;
   mouse = { x: 0, y: 0, isDown: false };
@@ -61,7 +61,6 @@ export class GravityComponent implements OnInit {
     this.canvas.nativeElement.onmousedown = this.mouseDown.bind(this);
     this.canvas.nativeElement.onmouseup = this.mouseUp.bind(this);
 
-    this.ctx.fillStyle = 'red';
     this.ctx.strokeStyle = '#000000';
   }
 
@@ -99,18 +98,50 @@ export class GravityComponent implements OnInit {
       Fx = (isNaN(Fx) ? 0 : Fx);
       Fy = (isNaN(Fy) ? 0 : Fy);
 
-      // Calculate acceleration ( F = ma )
-      const ax = Fx / this.ball.mass;
-      const ay = AG + (Fy / this.ball.mass);
-      // Integrate to get velocity
-      this.ball.velocity.x += ax * this.frameRate;
-      this.ball.velocity.y += ay * this.frameRate;
-
-      // Integrate to get position
-      this.ball.position.x += this.ball.velocity.x * this.frameRate * 100;
-      this.ball.position.y += this.ball.velocity.y * this.frameRate * 100;
+      this.calculateAcceleration(Fx, Fy);
     }
 
+    this.handleCollision();
+    this.drawBall();
+    this.drawSlingshot();
+  }
+
+  mouseDown = (event: any) => {
+    if (event.which === 1) {
+      this.getMousePosition(event);
+      this.mouse.isDown = true;
+    }
+  }
+
+  mouseUp = (event: any) => {
+    if (event.which === 1) {
+      this.mouse.isDown = false;
+      this.ball.velocity.y = (this.mouse.y - this.ball.position.y) / 10;
+      this.ball.velocity.x = (this.mouse.x - this.ball.position.x) / 10;
+    }
+  }
+
+  getMousePosition = (event: any) => {
+    this.mouse.x = event.pageX - this.canvas.nativeElement.offsetLeft;
+    this.mouse.y = event.pageY - this.canvas.nativeElement.offsetTop;
+  }
+
+  //#region Private methods
+
+  private calculateAcceleration = (fx: number, fy: number) => {
+    // Calculate acceleration ( F = ma )
+    const ax = fx / this.ball.mass;
+    const ay = AG + (fy / this.ball.mass);
+    // Integrate to get velocity
+    this.ball.velocity.x += ax * this.frameRate;
+    this.ball.velocity.y += ay * this.frameRate;
+
+    // Integrate to get position
+    this.ball.position.x += this.ball.velocity.x * this.frameRate * 100;
+    this.ball.position.y += this.ball.velocity.y * this.frameRate * 100;
+  }
+
+  private handleCollision = () => {
     // Handle collisions
     if (this.ball.position.y < this.ball.radius) {
       this.ball.velocity.y *= this.ball.restitution;
@@ -131,7 +162,9 @@ export class GravityComponent implements OnInit {
     if (this.ball.position.y === this.height - this.ball.radius && this.ball.velocity.x !== 0) {
       this.ball.velocity.x *= FRICTION;
     }
+  }
 
+  private drawBall = () => {
     // Draw the ball
 
     this.ctx.clearRect(0, 0, this.width, this.height);
@@ -140,10 +173,14 @@ export class GravityComponent implements OnInit {
     this.ctx.translate(this.ball.position.x, this.ball.position.y);
     this.ctx.beginPath();
     this.ctx.arc(0, 0, this.ball.radius, 0, Math.PI * 2, true);
+
+    this.ctx.fillStyle = 'red';
     this.ctx.fill();
     this.ctx.closePath();
     this.ctx.restore();
+  }
 
+  private drawSlingshot = () => {
     // Draw the slingshot
     if (this.mouse.isDown) {
       this.ctx.beginPath();
@@ -154,23 +191,5 @@ export class GravityComponent implements OnInit {
     }
   }
 
-  mouseDown = (event: any) => {
-    if (event.which === 1) {
-      this.getMousePosition(event);
-      this.mouse.isDown = true;
-    }
-  }
-
-  mouseUp = (event: any) => {
-    if (event.which === 1) {
-      this.mouse.isDown = false;
-      this.ball.velocity.y = (this.mouse.y - this.ball.position.y) / 10;
-      this.ball.velocity.x = (this.mouse.x - this.ball.position.x) / 10;
-    }
-  }
-
-  getMousePosition(event: any) {
-    this.mouse.x = event.pageX - this.canvas.nativeElement.offsetLeft;
-    this.mouse.y = event.pageY - this.canvas.nativeElement.offsetTop;
-  }
+  //#endregion
 }

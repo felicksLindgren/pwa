@@ -1,2 +1,2 @@
-<span style="height: 17px">{{fps}}fps</span>
-<canvas #canvas [width]="width + 1" [height]="height + 1" [ngStyle]="{ 'background-size': backgroundSize }">Get a better browser!</canvas>
+<span [ngStyle]="{'width': width + 'px'}" style="height: 17px">{{fps}}fps</span>
+<canvas #canvas [width]="width" [height]="height" [ngStyle]="{ 'background-size': backgroundSize, 'width': width + 'px' }">Get a better browser!</canvas>
