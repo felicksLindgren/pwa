@@ -8,10 +8,10 @@
       </mat-action-list>
       <mat-action-list class="test">
           <a mat-list-item
-          routerLink="/auth"
+          routerLink="/chats"
           routerLinkActive
-          #auth="routerLinkActive"
-          [class.list-item-active]="auth.isActive"
+          #chats="routerLinkActive"
+          [class.list-item-active]="chats.isActive"
           (click)="sidenav.toggle()">
             <h3 matLine>Chats</h3>
           </a>

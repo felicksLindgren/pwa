@@ -10,22 +10,24 @@ import { TensorflowComponent } from './components/tensorflow/tensorflow.componen
 import { RoutingModule } from './routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { SpeechRecognitionComponent } from './components/speech-recognition/speech-recognition.component';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { ChatComponent } from './components/chat/chat.component';
+import { ChatComponent } from './components/chats/chat/chat.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './services/auth-guard.service';
-import { AddChatComponent } from './components/add-chat/add-chat.component';
+import { AddChatComponent } from './components/chats/add-chat/add-chat.component';
 import { OnDestroyComponent } from './components/on-destroy/on-destroy.component';
-import { ChatListComponent } from './components/chat-list/chat-list.component';
+import { ChatListComponent } from './components/chats/chat-list/chat-list.component';
 import { PathfindingVizualizerComponent } from './components/pathfinding-vizualizer/pathfinding-vizualizer.component';
 import { CommonModule } from '@angular/common';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 import { SortingVizualizerComponent } from './components/sorting-vizualizer/sorting-vizualizer.component';
 import { GravityComponent } from './components/gravity/gravity.component';
+import { ChatsComponent } from './components/chats/chats.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { AvatarComponent } from './components/authentication/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,6 @@ import { GravityComponent } from './components/gravity/gravity.component';
     TensorflowComponent,
     HomeComponent,
     SpeechRecognitionComponent,
-    AuthenticationComponent,
     ChatComponent,
     AddChatComponent,
     OnDestroyComponent,
@@ -41,7 +42,10 @@ import { GravityComponent } from './components/gravity/gravity.component';
     PathfindingVizualizerComponent,
     TicTacToeComponent,
     SortingVizualizerComponent,
-    GravityComponent
+    GravityComponent,
+    ChatsComponent,
+    LoginComponent,
+    AvatarComponent
   ],
   imports: [
     CommonModule,

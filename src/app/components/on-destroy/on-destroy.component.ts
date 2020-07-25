@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-on-destroy',
@@ -8,6 +9,8 @@ import { Subject } from 'rxjs';
 })
 export class OnDestroyComponent implements OnDestroy {
   destroy$ = new Subject();
+
+  constructor() { }
 
   ngOnDestroy() {
     this.destroy$.next();

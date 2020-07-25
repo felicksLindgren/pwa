@@ -1,0 +1,39 @@
+<ng-container></ng-container>
+
+
+<ng-container *ngIf="{ value: auth.user$ | async } as context">
+  <div *ngIf="context.value != null">
+    <app-chat-list [user]="context.value"></app-chat-list>
+  </div>
+  <mat-progress-bar mode="indeterminate" *ngIf="context.value === null"></mat-progress-bar>
+  <ng-container *ngIf="context.value === undefined">
+      <!-- <mat-card >
+        <mat-card-header>
+          <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-256/google-1772223-1507807.png"/>
+          <mat-card-title>Google</mat-card-title>
+          <mat-card-subtitle>Authenticate with Google</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-button (click)="auth.googleSignIn()">LOGIN</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"/>
+          <mat-card-title>GitHub</mat-card-title>
+          <mat-card-subtitle>Authenticate with GitHub</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-button (click)="auth.gitHubSignIn()">LOGIN</button>
+        </mat-card-actions>
+      </mat-card> -->
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #guest >
+</ng-template>

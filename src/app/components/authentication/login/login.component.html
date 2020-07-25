@@ -1,0 +1,20 @@
+<mat-card >
+  <mat-card-header>
+    <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-256/google-1772223-1507807.png"/>
+    <mat-card-title>Google</mat-card-title>
+    <mat-card-subtitle>Authenticate with Google</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button (click)="signIn(auth.google)">LOGIN</button>
+  </mat-card-actions>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"/>
+    <mat-card-title>GitHub</mat-card-title>
+    <mat-card-subtitle>Authenticate with GitHub</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button (click)="signIn(auth.github)">LOGIN</button>
+  </mat-card-actions>
+</mat-card>

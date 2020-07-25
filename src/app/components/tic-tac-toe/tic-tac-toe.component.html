@@ -1,5 +1,6 @@
+<app-avatar></app-avatar>
 <div id="container" *ngIf="grid$ | async as grid">
-    <button mat-raised-button color="accent" (click)="resetGrid(grid)">Reset game</button>
+    <button matTooltip="Reset game" mat-fab (click)="resetGrid(grid)"><mat-icon>replay</mat-icon></button>
     <div id="row" *ngFor="let row of grid" >
       <div id="node" (contextmenu)="onRightClick($event)" *ngFor="let node of row; let y = index" (click)="click(grid, node)">
         {{node.value}}

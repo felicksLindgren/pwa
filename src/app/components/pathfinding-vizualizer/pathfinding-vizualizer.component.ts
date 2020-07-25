@@ -102,6 +102,7 @@ export class PathfindingVizualizerComponent {
   mouseIsPressed = false;
   selected = 'Dijkstra';
   speed = 50;
+  animating = false;
 
   private innerWidth: number;
   private innerHeight: number;
@@ -156,6 +157,7 @@ export class PathfindingVizualizerComponent {
   }
 
   vizualizeMaze() {
+    this.animating = true;
     const wallsToAnimate = this.algorithmService.maze(this.grid, 2, this.innerHeight - 3, 2, this.innerWidth - 3, 'vertical');
     this.animateWalls(wallsToAnimate);
   }
@@ -177,6 +179,9 @@ export class PathfindingVizualizerComponent {
   //#region Private Methods
 
   private animateWalls(walls: GridNode[]) {
+    this.animating = true;
+    setTimeout(() => this.animating = false, 10 * walls.length);
+
     for (let i = 0; i < walls.length; i++) {
       setTimeout(() => {
         walls[i].isWall = true;
@@ -186,6 +191,9 @@ export class PathfindingVizualizerComponent {
   }
 
   private animate(visitedNodesInOrder: GridNode[], nodesInShortestPathOrder: GridNode[]) {
+    this.animating = true;
+    setTimeout(() => this.animating = false, this.speed * visitedNodesInOrder.length);
+
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {

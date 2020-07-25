@@ -1,9 +1,4 @@
-<div class="container">
-    <img [src]="user.photoURL" />
-    <div class="middle">
-      <button mat-raised-button color="warn" (click)="signOut()">Sign out</button>
-    </div>
-</div>
+<app-avatar></app-avatar>
 <mat-nav-list *ngIf="chats$ | async as chats">
   <div>
     <button matTooltip="Add chat" mat-fab (click)="addChat()"><mat-icon>add</mat-icon></button>

@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  > div {
+    width: fit-content;
+    margin: 1rem auto 0 auto;
+
+
+    }
+
+
+  .mat-card {
+    margin: 1rem auto;
+    width: fit-content;
+  }
+}

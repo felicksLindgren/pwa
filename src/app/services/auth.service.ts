@@ -5,6 +5,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { auth } from 'firebase';
 
+const Google = 'Google';
+const GitHub = 'GitHub';
+
 interface User {
   uid: string;
   email: string;
@@ -30,6 +33,20 @@ export class AuthService {
     }));
   }
 
+  public get google(): string { return Google; }
+  public get github(): string { return GitHub; }
+
+  signIn(provider: string): Promise<void> {
+    switch (provider) {
+      case this.google:
+        return this.googleSignIn();
+      case this.github:
+        return this.gitHubSignIn();
+      default:
+        break;
+    }
+  }
+
   getUser() {
     return this.user$.pipe(first()).toPromise();
   }
@@ -44,6 +61,7 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut();
+    location.reload();
   }
 
   private async oAuthLogin(provider: firebase.auth.AuthProvider): Promise<void> {

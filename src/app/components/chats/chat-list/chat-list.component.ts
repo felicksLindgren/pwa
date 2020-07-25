@@ -5,8 +5,9 @@ import { ChatService } from 'src/app/services/chat.service';
 import { AddChatComponent } from '../add-chat/add-chat.component';
 import { MatDialog } from '@angular/material/dialog';
 import { takeUntil } from 'rxjs/operators';
-import { OnDestroyComponent } from '../on-destroy/on-destroy.component';
+import { OnDestroyComponent } from '../../on-destroy/on-destroy.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat-list',
@@ -20,7 +21,7 @@ export class ChatListComponent extends OnDestroyComponent implements OnInit {
   constructor(
     private chatService: ChatService,
     private dialog: MatDialog,
-    private auth: AuthService
+    public route: ActivatedRoute
   ) {
     super();
   }
@@ -40,7 +41,5 @@ export class ChatListComponent extends OnDestroyComponent implements OnInit {
       await this.chatService.delete(id);
     }
   }
-
-  signOut = () => this.auth.signOut();
 
 }
