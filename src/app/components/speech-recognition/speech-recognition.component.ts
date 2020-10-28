@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import * as speech from '@tensorflow-models/speech-commands';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from 'src/app/material.module';
 
 @Component({
   selector: 'app-speech-recognition',
@@ -47,3 +50,16 @@ export class SpeechRecognitionComponent implements OnInit {
     this.predictions = [];
   }
 }
+
+@NgModule({
+  declarations: [ SpeechRecognitionComponent ],
+  imports: [
+    MaterialModule,
+    CommonModule,
+    RouterModule.forChild([{
+      path: '',
+      component: SpeechRecognitionComponent
+    }])
+]
+})
+export class SpeechRecognitionModule { }

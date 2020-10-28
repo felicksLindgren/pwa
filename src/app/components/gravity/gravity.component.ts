@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild, ElementRef, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Ball } from 'src/app/interfaces/ball';
 
 const RADIUS = 15;
@@ -193,3 +195,17 @@ export class GravityComponent implements OnInit {
 
   //#endregion
 }
+
+@NgModule({
+  declarations: [
+    GravityComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([{
+      path: '',
+      component: GravityComponent
+    }])
+  ]
+})
+export class GravityModule { }

@@ -24,7 +24,6 @@ import { PathfindingVizualizerComponent } from './components/pathfinding-vizuali
 import { CommonModule } from '@angular/common';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 import { SortingVizualizerComponent } from './components/sorting-vizualizer/sorting-vizualizer.component';
-import { GravityComponent } from './components/gravity/gravity.component';
 import { ChatsComponent } from './components/chats/chats.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { AvatarComponent } from './components/authentication/avatar/avatar.component';
@@ -34,7 +33,6 @@ import { AvatarComponent } from './components/authentication/avatar/avatar.compo
     AppComponent,
     TensorflowComponent,
     HomeComponent,
-    SpeechRecognitionComponent,
     ChatComponent,
     AddChatComponent,
     OnDestroyComponent,
@@ -42,7 +40,6 @@ import { AvatarComponent } from './components/authentication/avatar/avatar.compo
     PathfindingVizualizerComponent,
     TicTacToeComponent,
     SortingVizualizerComponent,
-    GravityComponent,
     ChatsComponent,
     LoginComponent,
     AvatarComponent
